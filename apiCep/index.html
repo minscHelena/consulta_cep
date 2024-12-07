@@ -1,7 +1,7 @@
 <!DOCTYPE html>     
 <!-- ESTUDAR O CÓDIFO JS DA API --|> FAZER UM CAMPO PARA BUSCA ONDE O USUARIO INFORMA A CIDADE E A RUA E RETONA OS CEP PRÓXIMO A ELE - 
     PEGAR O VALOR DESSES INPUTS E JOGAR COMO VARIAVEL PARA O LINK DE CONSULTA DISPONÍVEL NO SITE https://viacep.com.br/ -->
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,63 +12,62 @@
     <title>Consultar Meu CEP</title>
 </head>
 <body>
-    <form class="form-control mt-3">
+  <h2 class="text-center mb-3 mt-5">Confirmar Endereço de Entrega</h2>
+    <form method="get" class="m-5 bg-info-subtle p-3 rounded">
         <div class="row mb-3">
-          <label for="" class="col-sm-2 col-form-label">CEP</label>
+          <label for="" class="col-sm-2 col-form-label fw-bold" >CEP</label>
           <div class="col-sm-5">
-            <input type="text" class="form-control" id="cep">
+            <input type="text" class="form-control bg-transparent" id="cep" placeholder="Digite seu CEP" onblur="pesquisacep(this.value);">
           </div>
         </div>
         <div class="row mb-3">
-          <label for="" class="col-sm-2 col-form-label">Rua</label>
+          <label for="" class="col-sm-2 col-form-label fw-bold">Rua</label>
           <div class="col-sm-5">
-            <input type="text" class="form-control" id="rua">
+            <input type="text" class="form-control bg-transparent" id="rua">
           </div>
         </div>
         <div class="row mb-3">
-            <label for="" class="col-sm-2 col-form-label">Bairro</label>
+            <label for="" class="col-sm-2 col-form-label fw-bold">Bairro</label>
             <div class="col-sm-5">
-              <input type="text" class="form-control" id="bairro">
+              <input type="text" class="form-control bg-transparent" id="bairro">
             </div>
         </div>
         <div class="row mb-3">
-            <label for="" class="col-sm-2 col-form-label">Cidade</label>
+            <label for="" class="col-sm-2 col-form-label fw-bold">Cidade</label>
             <div class="col-sm-5">
-              <input type="text" class="form-control" id="cidade">
+              <input type="text" class="form-control bg-transparent" id="cidade">
             </div>
         </div>
         <div class="row mb-1">
-            <label for="" class="col-sm-2 col-form-label">Estado</label>
+            <label for="" class="col-sm-2 col-form-label fw-bold">Estado</label>
             <div class="col-sm-5">
-              <input type="text" class="form-control" id="uf">
+              <input type="text" class="form-control bg-transparent" id="uf">
             </div>
         </div>
 
       </form>
+    
+  <h3 class="text-center mb-3 mt-5">Não sabe seu CEP?</h3>
+  <h4 class="text-center mb-3 mt-5">Busque Pelo Nome da Sua Rua</h3>
+  <div class="row mb-1">
+      <label for="" class="col-sm-2 col-form-label fw-bold">Cidade</label>
+      <div class="col-sm-5">
+        <input type="text" class="form-control" id="cidadeBusca">
+      </div>
+  </div>
+  <div class="row mb-1">
+    <label for="" class="col-sm-2 col-form-label fw-bold">Rua</label>
+    <div class="col-sm-5">
+      <input type="text" class="form-control bg-transparent" id="ruaBusca">
+    </div>
+  </div>
+  <button type="button" class="btn btn-info" onclick="pesquisaEnder()">Info</button>
+  <main></main>
 
-
-    <!-- <form method="get" action="">
-        <div class="row mb-3">
-            <label for="colFormLabel" class="">CEP</label>
-            <input name="cep" id="cep" type="text" placeholder="Digite o seu CEP" onblur="pesquisacep(this.value);">    
-        </div>
-        <div class="row mb-3">
-            <label for="colFormLabel">Rua</label>
-            <input name="rua" id="rua" type="text">
-        </div>
-        <div class="row mb-3">
-            <label for="colFormLabel">Bairro</label>
-            <input name="bairro" id="bairro" type="text">
-        </div>
-        <div class="row mb-3">
-            <label for="colFormLabel">Cidade</label>
-            <input name="cidade" id="cidade" type="text">
-        </div>
-       <div class="row mb-3">
-            <label for="colFormLabel">Estado</label>
-            <input name="uf" id="uf" type="text">
-       </div> -->
-        
-    <script src="script.js"></script>
+  <div class="card border-info mb-3" style="max-width: 18rem;" id="frame"></div>
+    
+    <script src="buscaCep.js"></script>
+    <script src="buscaEnder.js"></script>
+    <script src="fetch.js"></script>
 </body>
 </html>
