@@ -1,0 +1,62 @@
+<!DOCTYPE html>     
+<!-- ESTUDAR O CÓDIFO JS DA API --|> FAZER UM CAMPO PARA BUSCA ONDE O USUARIO INFORMA A CIDADE E A RUA E RETONA OS CEP PRÓXIMO A ELE - 
+    PEGAR O VALOR DESSES INPUTS E JOGAR COMO VARIAVEL PARA O LINK DE CONSULTA DISPONÍVEL NO SITE https://viacep.com.br/ -->
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="buscaEnder.js"></script>
+
+    <title>Consultar Logradouro</title>
+</head>
+<body>
+    <nav class="navbar navbar-info bg-info">
+        <div class="container-fluid">
+          <span class="navbar-brand mb-3 mt-3 mx-auto text-center fs-2 fst-italic fw-bold">Consulta Logradouro</span>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="card mt-4 mx-auto" style="width: 50%;">
+            <form onsubmit="consultar(event)">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="mt-2 col-md-10">
+                            <label for="" class="form-label">Cidade</label>
+                            <input type="text" class="form-control" id="cidade" required minlength="3">
+                        </div>
+                        <div class="mt-2 col-md-2">
+                            <label for="" class="form-label">Estado</label>
+                            <input type="text" class="form-control" id="uf" value="PR" required minlength="2">
+                        </div>
+                    </div>
+                    <div class="mt-2">
+                        <label class="form-label">Logradouro</label>
+                        <input type="text" class="form-control" id="logradouro" required minlength="3">
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-info col-md-12">Consultar</button>
+                </div>
+            </form>
+        </div>
+        <div class="card mt-4 mb-2 mx-auto">
+            <div class="card-body">
+                <table class="table table-primary table-hover" id="lista">
+                    <thead class="bg-info">
+                        <tr>
+                            <td>CEP</td>
+                            <td>Logradouro</td>
+                            <td>Bairro</td>
+                            <td>Complemento</td>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="buscaEnder.js"></script>
+</body>
+</html>
